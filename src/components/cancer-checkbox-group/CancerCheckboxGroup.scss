@@ -1,0 +1,21 @@
+.cancer-checkbox-group {
+  &__form-item.ant-form-item {
+    flex-direction: row;
+
+    .ant-form-item-label {
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+
+    .ant-form-item-control {
+      flex: 0 0 75%;
+      max-width: 75%;
+    }
+  }
+
+  &__header .ant-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

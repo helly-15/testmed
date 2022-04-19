@@ -1,0 +1,81 @@
+$palette: (
+  primary: (
+    light: #a8aae4,
+    base: #8386d8,
+    dark: #3a3eb8
+  ),
+  secondary: (
+    light: #575bca,
+    base: #2e3192,
+    dark: #212367
+  ),
+  accent: (
+    light: #4ae2a0,
+    base: #1eb573,
+    dark: #147e50
+  ),
+  elevated: (
+    base: #fff,
+    contrast: #f7f9fc,
+    shadow: rgba(0, 0, 0, 0.08)
+  ),
+  background: (
+    base: #f0f2f5,
+    light: #f4f6f8,
+    dark: #e1e5eb
+  ),
+  foreground: (
+    base: #242425,
+    light: #767679,
+    dark: #000
+  ),
+  normal: (
+    light: #68d786,
+    dark: #5fc47a
+  ),
+  mild: (
+    light: #ffc400,
+    dark: #f2aa18
+  ),
+  moderate: (
+    light: #ffa049,
+    dark: #fb9334
+  ),
+  severe: (
+    light: #ff6f6a,
+    dark: #fc615b
+  )
+);
+
+$alpha: (
+  base: 0.5,
+  light: 0.8,
+  dark: 0.4
+);
+
+@function color($name, $tone: 'base') {
+  @if map-has-key($palette, $name) {
+    $color: map-get($palette, $name);
+
+    @if map-has-key($color, $tone) {
+      $tone: map-get($color, $tone);
+      @return $tone;
+    }
+
+    @warn "unknown tone `#{$tone}` in color";
+    @return null;
+  }
+
+  @warn "unknown color `#{$color}` in palette";
+  @return null;
+}
+
+@function color-alpha($name, $tone: 'base', $opacity: 0) {
+  $color: color($name, $tone);
+
+  @if map-has-key($alpha, $opacity) {
+    $opacity: map-get($alpha, $opacity);
+  }
+
+  @return rgba($color, $opacity);
+}

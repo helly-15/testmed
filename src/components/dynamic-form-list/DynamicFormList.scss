@@ -1,0 +1,33 @@
+@import '../../styles/variables';
+
+.dynamic-form-list {
+  &__headers {
+    display: flex;
+    justify-content: space-around;
+    margin-right: calc(16px + #{$mobile-gap});
+
+    & > * {
+      flex: 0 0 1;
+    }
+  }
+
+  &__values {
+    list-style-type: none;
+    padding: 0;
+
+    & > li {
+      display: flex;
+      align-items: center;
+      gap: $mobile-gap;
+      margin-bottom: $mobile-gap;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .anticon {
+      font-size: 16px;
+    }
+  }
+}

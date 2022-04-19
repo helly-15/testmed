@@ -1,0 +1,45 @@
+{
+  "id": "howAreYou",
+  "questions": [
+    {
+      "id": 1,
+      "section": "How are you?",
+      "title": "How much do you feel like your usual self?"
+    },
+    {
+      "id": 2,
+      "section": "How are you?",
+      "title": "How is your day going?"
+    },
+    {
+      "id": 3,
+      "section": "How are you?",
+      "title": "Does it feel familiar and usual/normal to you?"
+    },
+    {
+      "id": 4,
+      "section": "How are you?",
+      "title": "How are your relationships? Are you holding as usual?"
+    },
+    {
+      "id": 5,
+      "section": "How is work/school/home?",
+      "title": "How are you managing with work, school or home responsibilities?"
+    },
+    {
+      "id": 6,
+      "section": "How is work/school/home?",
+      "title": "How do  you feel about yourself or your abilities in this area?"
+    },
+    {
+      "id": 7,
+      "section": "How is sport/recreation?",
+      "title": "Are you able to engage in sports and recreation as usual?"
+    },
+    {
+      "id": 8,
+      "section": "How is sport/recreation?",
+      "title": "Are you able to do the exercises and homework as prescribed?"
+    }
+  ]
+}

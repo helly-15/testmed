@@ -1,0 +1,10 @@
+.wizard-nav {
+  display: flex;
+  &__back {
+    margin-right: auto;
+  }
+
+  &__next {
+    margin-left: auto;
+  }
+}

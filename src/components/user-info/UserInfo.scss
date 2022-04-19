@@ -1,0 +1,12 @@
+@import '../../styles/palette';
+
+.user-info {
+  display: block;
+  cursor: pointer;
+
+  &__name {
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 16px;
+  }
+}

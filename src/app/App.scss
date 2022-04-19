@@ -1,0 +1,51 @@
+@import '../styles/media-breakpoint';
+@import '../styles/variables';
+
+.layout-wrapper {
+  .crx-sider {
+    position: fixed;
+    height: 100vh;
+    min-height: 200px;
+    top: 0;
+    z-index: 1200;
+  }
+
+  .site-layout {
+    min-height: 100vh;
+
+    .ant-layout-content {
+      flex: 1 1 auto;
+      min-height: min-content;
+      padding: $mobile-gap $mobile-gap
+        calc(#{$bottom-nav-height} + #{$mobile-gap}) $mobile-gap;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+    }
+  }
+}
+
+@include media-breakpoint(gt-md) {
+  .layout-wrapper {
+    .crx-sider {
+      position: sticky;
+      height: 100vh;
+      min-height: 200px;
+      top: 0;
+      z-index: 1200;
+    }
+
+    .site-layout {
+      .ant-layout-content {
+        padding: $desktop-gap;
+      }
+    }
+  }
+}

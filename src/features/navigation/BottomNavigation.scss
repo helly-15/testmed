@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+
+.bottom-nav.ant-menu {
+  height: $bottom-nav-height;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  line-height: $bottom-nav-height;
+
+  .ant-menu-item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

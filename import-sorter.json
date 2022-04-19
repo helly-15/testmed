@@ -1,0 +1,43 @@
+{
+  "generalConfiguration": {
+    "sortOnBeforeSave": true
+  },
+  "importStringConfiguration": {
+    "maximumNumberOfImportExpressionsPerLine": {
+      "type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
+      "count": 80
+    },
+    "tabSize": 2,
+    "quoteMark": "single"
+  },
+  "sortConfiguration": {
+    "customOrderingRules": {
+      "defaultNumberOfEmptyLinesAfterGroup": 1,
+      "defaultOrderLevel": 30,
+      "rules": [
+        {
+          "type": "importMember",
+          "regex": "^$",
+          "orderLevel": 10,
+          "disableSort": false
+        },
+        {
+          "regex": "^(react)",
+          "orderLevel": 20
+        },
+        {
+          "regex": "^(hooks|api|data)",
+          "orderLevel": 40
+        },
+        {
+          "regex": "^(app|features|components)",
+          "orderLevel": 50
+        },
+        {
+          "regex": "^[.]",
+          "orderLevel": 60
+        }
+      ]
+    }
+  }
+}

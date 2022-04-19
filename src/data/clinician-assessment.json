@@ -1,0 +1,322 @@
+[
+  {
+    "id": "pmhx",
+    "title": "PMHx",
+    "answerType": "checkbox",
+    "answers": {
+      "unremarkable": "Unremarkable",
+      "myocarialInfarction": "M (Myocarial infarction)",
+      "jaundice": "J (Jaundice)",
+      "tuberculosisThyroid": "T (Tuberculosis/Thyroid)",
+      "hypertension": "H (Hypertension)",
+      "rheumatoidArthritis ": "R (Rheumatoid arthritis )",
+      "epilepsy": "E (Epilepsy)",
+      "asthma": "A (Asthma)",
+      "diabtetes": "D (Diabtetes)",
+      "stroke": "S (Stroke)",
+      "injuriesAndSurgeries": "MSK (Injuries, Surgeries)",
+      "irregularHeartRhythm": "Irregular Heart Rhythm",
+      "cardiacCondition": "Cardiac Condition",
+      "historyOfFainting": "History of Fainting",
+      "lowBloodPressure": "Low Blood Pressure",
+      "highBloodPressure": "High Blood Pressure",
+      "neurologicCondition": "Neurologic Condition",
+      "cancer": "Cancer"
+    },
+    "columns": 3
+  },
+  {
+    "id": "medication",
+    "title": "Medication",
+    "answerType": "text"
+  },
+  {
+    "id": "socialHx",
+    "title": "Social Hx",
+    "answerType": "text"
+  },
+  {
+    "id": "redFlagQuestions",
+    "title": "Red Flag Questions",
+    "answerType": "checkbox",
+    "answers": {
+      "cleared": "Cleared",
+      "constantDizziness": "Constant Dizziness",
+      "dysphagia": "Dysphagia",
+      "dysarthria": "Dysarthria",
+      "dropAttacks": "Drop Attacks",
+      "doubleVision": "Double Vision",
+      "nauseaVomiting": "Nausea + Vomiting",
+      "nystagmus": "Nystagmus",
+      "numbnessTingling": "Numbness + Tingling"
+    },
+    "columns": 3
+  },
+  {
+    "id": "currentSymptoms",
+    "title": "Current Symptoms",
+    "answerType": "checkbox-text",
+    "answers": {
+      "headache": "Headache",
+      "dizzinessVertigo": "Dizziness/Vertigo",
+      "nausia": "Nausia",
+      "fogginess": "Fogginess",
+      "balanceDifficulty": "Balance Difficulty",
+      "lightSensitivity": "Light Sensitivity",
+      "noiseSensitivity": "Noise Sensitivity",
+      "visualIssues": "Visual Issues",
+      "pain": "Pain",
+      "exertionIntolerance": "Exertion Intolerance",
+      "cognitiveComplaints": "Cognitive Complaints",
+      "other": "Other"
+    },
+    "columns": 1
+  },
+  {
+    "id": "exertionSpecificHistory",
+    "title": "Exertion Specific History",
+    "answerType": "checkbox-text",
+    "answers": {
+      "preInjuryActivity": "Pre Injury Activity",
+      "currentLevel": "Current Level",
+      "activityGoals": "Activity Goals",
+      "athlete?": "Athlete?",
+      "sport": "Sport",
+      "level": "Level",
+      "position": "Position"
+    },
+    "columns": 1
+  },
+  {
+    "id": "cervicalAssessment",
+    "title": "Cervical Assessment",
+    "answerType": "checkbox-text",
+    "answers": {
+      "cervicalAssessment": "Cervical Assessment",
+      "observation": "Observation",
+      "flexion": "Flexion",
+      "extension": "Extension",
+      "leftSideFlexion": "Left Side Flexion",
+      "rightSideFlexion": "Right Side Flexion",
+      "leftRotation": "Left Rotation",
+      "rightRotation": "Right Rotation",
+      "strength": "Strength",
+      "cvLigamentStability": "CV Ligament Stability",
+      "segmentalMobility": "Segmental Mobility",
+      "myotomes": "Myotomes",
+      "dermatomes": "Dermatomes",
+      "reflexes": "Reflexes",
+      "redFlagSigns": "Red Flag Signs",
+      "tractionCompression": "Traction/Compression",
+      "cervicalFlexionRotationTest": "Cervical Flexion Rotation Test",
+      "palpation": "Palpation",
+      "other": "Other"
+    },
+    "columns": 1
+  },
+  {
+    "id": "voms",
+    "title": "VOMS",
+    "answerType": "checkbox-text",
+    "answers": {
+      "totalScore": "Total Score",
+      "pursuits": "Pursuits",
+      "hSaccades": "H Saccades",
+      "vSaccades": "V Saccades",
+      "convergence": "Convergence",
+      "hVOR": "H VOR",
+      "vVOR": "V VOR",
+      "VORc": "VORc",
+      "accommodation": "Accommodation",
+      "peripheralvVision": "Peripheral Vision",
+      "other": "Other"
+    },
+    "columns": 1,
+    "hasScore": true
+  },
+  {
+    "id": "toleranceVoms",
+    "title": "Tolerance to VOMs",
+    "answerType": "checkbox",
+    "answers": {
+      "modifiedBasedOnSymptoms": "Modified based on symptoms",
+      "breaksRequired": "Breaks required",
+      "fatiguedIncreasedSymptomsFollowing": "Fatigued/increased symptoms following",
+      "toleratedWell": "Tolerated well"
+    },
+    "columns": 3
+  },
+  {
+    "id": "kingDevickTest",
+    "title": "King Devick Test",
+    "answerType": "checkbox-text",
+    "answers": {
+      "trial1": "Trial 1",
+      "trial2": "Trial 2",
+      "trail3": "Trail 3"
+    },
+    "columns": 1,
+    "hasScore": true
+  },
+  {
+    "id": "bess",
+    "title": "BESS",
+    "answerType": "checkbox-text",
+    "answers": {
+      "fiemFeetTogether": "FIRM – feet together",
+      "fiemTandem": "FIRM – tandem",
+      "fiemSls": "FIRM – SLS",
+      "foamFeetTogether ": "FOAM – feet together ",
+      "foamTandem": "FOAM– tandem",
+      "foamSLS": "FOAM– SLS"
+    },
+    "columns": 1,
+    "hasScore": true
+  },
+  {
+    "id": "dynamicBalance",
+    "title": "Dynamic Balance",
+    "answerType": "checkbox-text",
+    "answers": {
+      "rhombergHHeadTurns": "Rhomberg H head turns",
+      "rhombergVHeadTurns": "Rhomberg V head turns",
+      "tandemWalkEO": "Tandem walk EO (timed+errors)",
+      "tandemWalkEC": "Tandem walk EC (timed+errors)",
+      "tandemWalkCognitiveLoad": "Tandem walk + Cognitive Load (months) (timed+errors)"
+    },
+    "columns": 1
+  },
+  {
+    "id": "dynavision",
+    "title": "Dynavision",
+    "answerType": "checkbox-text",
+    "answers": {
+      "inner3": "Inner 3",
+      "fullBoard": "Full Board",
+      "symptomsReported": "Symptoms Reported"
+    },
+    "columns": 1
+  },
+  {
+    "id": "physiologicalAssessment",
+    "title": "Physiological Assessment – Positional Changes",
+    "answerType": "checkbox-text",
+    "answers": {
+      "supine": "Supine (2 min) HR +BP",
+      "standing": "Standing (1 min) HR + BP",
+      "symptomIncreases": "Symptom increases"
+    },
+    "columns": 1
+  },
+  {
+    "id": "positionalChangeResponse",
+    "title": "Response to Positional Change",
+    "answerType": "checkbox",
+    "answers": {
+      "elevatedRestingHrOrBp": "Elevated resting HR or BP",
+      "ppiBpDrop": "Positive for positional intolerance – BP drop (+ symptoms)",
+      "ppiHrRaise": "Positive for positional intolerance – HR raise (+ symptoms)",
+      "normalCleared": "Normal - CLEARED"
+    },
+    "columns": 3
+  },
+  {
+    "id": "par-q",
+    "title": "PAR-Q (if indicated) ",
+    "answerType": "checkbox",
+    "answers": {
+      "clear": "PAR-Q completed – clear",
+      "notClear": "PAR-Q completed – not clear – MD clearance required prior to exertion assessment"
+    },
+    "columns": 2
+  },
+  {
+    "id": "physProfile",
+    "title": "Physiologic Profile",
+    "answerType": "checkbox-text",
+    "answers": {
+      "age": "Age",
+      "mhr": "80% of MHR",
+      "baselineSx": "Baseline Sx’s",
+      "severity": "Severity/10"
+    },
+    "columns": 1
+  },
+  {
+    "id": "physTesting",
+    "title": "Physiologic Testing",
+    "answerType": "checkbox-text",
+    "answers": {
+      "bike": "Bike 50-60 rpm no resistance 5 min",
+      "treadmill": "Treadmill 2.0 mph no incline 5 min",
+      "movement": "Movement – 5 min",
+      "modifiedBCTT": "Modified BCTT",
+      "associatedHR": "Associated HR",
+      "maximumPercent": "% of Maximum",
+      "associatedRPE": "Associated RPE",
+      "reasoningForStopping": "Reasoning for Stopping",
+      "levelOfConditioning": "Level of Conditioning"
+    },
+    "columns": 1
+  },
+  {
+    "id": "exertionResponse",
+    "title": "Response to Exertion ",
+    "answerType": "checkbox",
+    "answers": {
+      "symptomProvocation": "2+ Symptom Provocation with physical exertion",
+      "abnormalHRresponse": "Abnormal HR response",
+      "notableBalanceDeficits": "Notable balance deficits",
+      "unableToEngageInConversation": "Unable to engage in conversation",
+      "physicalDeconditioningPresent": "Physical deconditioning present",
+      "abnormalHRrecovery": "Abnormal HR recovery",
+      "cleared": "CLEARED – achieved 80% MHR without symptoms + with normal RPE/HR response"
+    },
+    "columns": 3
+  },
+  {
+    "id": "education",
+    "title": "Education",
+    "answerType": "checkbox",
+    "answers": {
+      "twoPointSymptomScale": "2 Point Symptom Scale",
+      "recommendedEarlyExercise": "Recommended Early Exercise",
+      "heartRateTargetMonitor": "Heart Rate Target + Monitor",
+      "autonomicSystemEducation": "Autonomic System Education",
+      "riskOfFurtherInjury": "Risk of Further Injury",
+      "rehabPotential": "Rehab Potential"
+    },
+    "columns": 3
+  },
+  {
+    "id": "analysis",
+    "title": "Analysis",
+    "answerType": "checkbox-text",
+    "answers": {
+      "seeBCESummaryOfFindings": "See BCE Summary of Findings",
+      "symptomPresentation": "Symptom presentation",
+      "oculomotorVestibular": "Oculomotor-Vestibular",
+      "balance": "Balance",
+      "cervical": "Cervical",
+      "physiologic": "Physiologic",
+      "additionalComments": "Additional Comments"
+    },
+    "columns": 1
+  },
+  {
+    "id": "state",
+    "hidden": true,
+    "answerType": "checkbox-text",
+    "answers": {
+      "cognition": "Cognition",
+      "sleep": "Sleep",
+      "coping": "Coping",
+      "mood": "Mood"
+    }
+  },
+  {
+    "id": "symptoms",
+    "title": "Symptoms",
+    "answerType": "text"
+  }
+]

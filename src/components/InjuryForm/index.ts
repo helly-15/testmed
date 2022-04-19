@@ -1,0 +1,1 @@
+export { InjuryForm } from './InjuryForm';

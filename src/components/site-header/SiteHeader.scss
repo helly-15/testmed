@@ -1,0 +1,71 @@
+@import '../../styles/palette';
+@import '../../styles/variables';
+@import '../../styles/media-breakpoint';
+
+.site-header {
+  &,
+  h1 {
+    color: color(background);
+  }
+
+  background-color: color(primary);
+  height: $header-height;
+  line-height: $header-height;
+  overflow: hidden;
+  padding: 0;
+  z-index: 500;
+  box-shadow: 0px 5px 10px color(elevated, shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: $mobile-gap;
+    min-width: 0;
+
+    h1 {
+      padding: 0;
+      line-height: $header-height;
+      margin: 0;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .trigger {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: $header-height;
+      padding: 0 17px;
+      transition: color 0.3s;
+
+      &:hover {
+        color: color(primary, dark);
+      }
+    }
+  }
+
+  .user-info {
+    white-space: nowrap;
+  }
+}
+
+@include media-breakpoint(gt-md) {
+  .site-header {
+    background-color: white;
+    &,
+    h1 {
+      color: color(foreground);
+    }
+
+    &__left {
+      gap: $desktop-gap;
+    }
+  }
+}

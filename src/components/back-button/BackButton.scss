@@ -1,0 +1,13 @@
+@import '../../styles/palette';
+
+.back-button {
+  align-items: center;
+  border: 1px solid color(background, dark);
+  border-radius: 6px;
+  display: flex;
+  padding: 10px;
+
+  &:hover {
+    background-color: color(background, dark);
+  }
+}

@@ -1,0 +1,40 @@
+@import '../../styles/variables';
+@import '../../styles/palette';
+@import '../../styles/media-breakpoint';
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+
+  &__content {
+    padding: 20px 0;
+  }
+
+  &__clinic,
+  &__control,
+  &__control:visited,
+  &__control:hover {
+    color: color(foreground, light);
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .column {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@include media-breakpoint(gt-md) {
+  .footer {
+    & &__clinic {
+      justify-content: flex-start;
+    }
+
+    & &__terms {
+      justify-content: flex-end;
+    }
+  }
+}
