@@ -23,10 +23,6 @@ export const HealthHistoryForm: React.FC<HealthHistoryFormProps> = React.memo(
     const [form] = Form.useForm();
     const handleValuesChange = React.useCallback(
       (changedValue: any, changedValues: any) => {
-        if (Object.keys(changedValue)[0] === 'cancer') {
-          form.resetFields();
-        }
-
         onChange(
           handleFormChange(
             changedValue,
@@ -37,9 +33,8 @@ export const HealthHistoryForm: React.FC<HealthHistoryFormProps> = React.memo(
           )
         );
       },
-      [form, onChange, value]
+      [onChange, value]
     );
-    console.log(value);
     return (
       <div className="health-history-form">
         <FormHeaders labels={healthHistoryHeaders} />
