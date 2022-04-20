@@ -1,8 +1,9 @@
 import { Document } from './document';
 import { CancerSheet } from './patient-family-history';
+import { HealthConditionAnswers } from '../components/health-history-form/consts';
 
 export interface Issue {
-  answer?: string;
+  answer?: HealthConditionAnswers;
   onsetYear?: string;
 }
 

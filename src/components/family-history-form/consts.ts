@@ -1,6 +1,6 @@
 import { YesNoAnswer } from 'constants/yes-no-answer';
 
-interface FormItem {
+export interface FormItem {
   name: string;
   label: string;
   tooltip?: string;

@@ -1,3 +1,5 @@
+import { FormItem } from '../family-history-form/consts';
+
 export enum HealthConditionAnswers {
   No = 'no',
   Current = 'current',
@@ -14,17 +16,44 @@ export const HealthConditionOptions = [
   { label: 'Unknown', value: HealthConditionAnswers.Unknown }
 ];
 
-export const healthHistoryDeceases = [
-  'Asthma',
-  'Chronic Obstructive Pulmonary Disease',
-  'Chron’s Disease',
-  'Chronic Pancreatitis',
-  'Type 1 Diabetes',
-  'Type 2 Diabetes',
-  'High Blood Sugar',
-  'High Blood Pressure',
-  'High Cholesterol',
-  'Cancer'
+export const healthHistoryDeceases: FormItem[] = [
+  { name: 'asthma', label: 'Asthma' },
+  {
+    name: 'chronicObstructivePulmonaryDisease',
+    label: 'Chronic Obstructive Pulmonary Disease'
+  },
+  { name: 'chronsDisease', label: "Chron's Disease" },
+  {
+    name: 'chronicPancreatitis',
+    label: 'Chronic Pancreatitis'
+  },
+  {
+    name: 'type1Diabetes',
+    label: 'Type 1 Diabetes'
+  },
+  {
+    name: 'type2Diabetes',
+    label: 'Type 2 Diabetes'
+  },
+  {
+    name: 'highBloodSugar',
+    label: 'High Blood Sugar'
+  },
+  {
+    name: 'highBloodPressure',
+    label: 'High Blood Pressure'
+  },
+  {
+    name: 'highCholesterol',
+    label: 'High Cholesterol'
+  },
+  { name: 'cancer', label: 'Cancer' }
 ];
 
 export const healthHistoryHeaders = ['Health Issue', 'Answer', 'Year of onset'];
+
+export const healthHistoryKeyCondition = {
+  cancer: (value: HealthConditionAnswers) =>
+    value !== HealthConditionAnswers.Current &&
+    value !== HealthConditionAnswers.Managed
+};

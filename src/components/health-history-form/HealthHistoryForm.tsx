@@ -5,49 +5,82 @@ import './HealthHistoryForm.scss';
 import {
   healthHistoryDeceases,
   HealthConditionOptions,
-  healthHistoryHeaders
+  healthHistoryHeaders,
+  HealthConditionAnswers,
+  healthHistoryKeyCondition
 } from './consts';
+import { PatientHealthHistory } from '../../documents';
+import { CancerCheckboxGroup, keyDependency } from '../cancer-checkbox-group';
+import { handleFormChange } from '../../utils/antd';
 
-export const HealthHistoryForm: React.FC = React.memo(() => {
-  const [form] = Form.useForm();
-  const handleValuesChange = () => null;
+interface HealthHistoryFormProps {
+  value?: PatientHealthHistory;
+  onChange: (value: PatientHealthHistory) => void;
+}
 
-  return (
-    <div className="health-history-form">
-      <FormHeaders labels={healthHistoryHeaders} />
-      <Form
-        form={form}
-        name="health-history-form"
-        layout="horizontal"
-        onValuesChange={handleValuesChange}
-      >
-        {healthHistoryDeceases.map(item => (
-          <Form.Item
-            label={item}
-            key={item}
-            style={{ marginBottom: 0 }}
-            className={'health-history-form__line-wrapper'}
-          >
+export const HealthHistoryForm: React.FC<HealthHistoryFormProps> = React.memo(
+  ({ value, onChange }) => {
+    const [form] = Form.useForm();
+    const handleValuesChange = React.useCallback(
+      (changedValue: any, changedValues: any) => {
+        if (Object.keys(changedValue)[0] === 'cancer') {
+          form.resetFields();
+        }
+
+        onChange(
+          handleFormChange(
+            changedValue,
+            changedValues,
+            value,
+            keyDependency,
+            healthHistoryKeyCondition
+          )
+        );
+      },
+      [form, onChange, value]
+    );
+    console.log(value);
+    return (
+      <div className="health-history-form">
+        <FormHeaders labels={healthHistoryHeaders} />
+        <Form
+          form={form}
+          name="health-history-form"
+          layout="horizontal"
+          onValuesChange={handleValuesChange}
+        >
+          {healthHistoryDeceases.map(item => (
             <Form.Item
-              name={`condition${item}`}
-              className={'health-history-form__condition'}
+              label={item.label}
+              key={item.name}
+              style={{ marginBottom: 0 }}
+              className={'health-history-form__line-wrapper'}
             >
-              <Select
-                placeholder="Choose one"
-                options={HealthConditionOptions}
-              ></Select>
+              <Form.Item
+                name={item.name}
+                className={'health-history-form__condition'}
+              >
+                <Select
+                  placeholder="Choose one"
+                  options={HealthConditionOptions}
+                ></Select>
+              </Form.Item>
+              <Form.Item
+                name={`year${item}`}
+                className={'health-history-form__year'}
+              >
+                <Input placeholder="Type in year of onset" />
+              </Form.Item>
             </Form.Item>
-            <Form.Item
-              name={`year${item}`}
-              className={'health-history-form__year'}
-            >
-              <Input placeholder="Type in year of onset" />
-            </Form.Item>
-          </Form.Item>
-        ))}
-      </Form>
-    </div>
-  );
-});
+          ))}
+          {(value?.cancer === HealthConditionAnswers.Current ||
+            value?.cancer === HealthConditionAnswers.Managed) && (
+            <CancerCheckboxGroup />
+          )}
+        </Form>
+      </div>
+    );
+  }
+);
 
 HealthHistoryForm.displayName = 'HealthHistoryForm';
