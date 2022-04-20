@@ -30,7 +30,6 @@ export const HealthHistoryForm: React.FC = React.memo(() => {
           >
             <Form.Item
               name={`condition${item}`}
-              style={{ display: 'inline-block', width: 'calc(50% - 8px)' }}
               className={'health-history-form__condition'}
             >
               <Select
@@ -40,11 +39,6 @@ export const HealthHistoryForm: React.FC = React.memo(() => {
             </Form.Item>
             <Form.Item
               name={`year${item}`}
-              style={{
-                display: 'inline-block',
-                width: 'calc(50% - 8px)',
-                margin: '0 8px'
-              }}
               className={'health-history-form__year'}
             >
               <Input placeholder="Type in year of onset" />
