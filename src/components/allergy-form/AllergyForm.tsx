@@ -1,10 +1,11 @@
 import * as React from 'react';
 
-import { Form, Input } from 'antd';
+import { Form } from 'antd';
 import { PatientAllergy, PatientAllergyItem } from 'documents';
 import { handleFormChange } from 'utils/antd';
 
 import { DynamicFormList } from 'components/index';
+import { FormTextarea } from '../form-textarea/FormTextarea';
 
 interface AllergyFormProps {
   value: PatientAllergy | undefined;
@@ -50,12 +51,7 @@ export const AllergyForm: React.FC<AllergyFormProps> = ({
         onItemChange={onItemChange}
         onItemRemove={onItemRemove}
       />
-      <Form.Item className="hh-comments" name="comments" label="Comments">
-        <Input.TextArea
-          rows={5}
-          placeholder="Please add any details you consider important."
-        />
-      </Form.Item>
+      <FormTextarea />
     </Form>
   );
 };

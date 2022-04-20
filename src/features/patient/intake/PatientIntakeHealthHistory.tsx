@@ -8,8 +8,9 @@ import { useDocument } from 'hooks/firestore';
 
 import { RootState } from 'app/rootReducer';
 import { Page, WizardNavigation } from 'components';
-import { Form, Input } from 'antd';
+import { Form } from 'antd';
 import { HealthHistoryForm } from '../../../components/health-history-form/HealthHistoryForm';
+import { FormTextarea } from '../../../components/form-textarea/FormTextarea';
 
 export const PatientIntakeHealthHistory: React.FC = () => {
   const user = useSelector((state: RootState) => state.auth.user);
@@ -40,16 +41,13 @@ export const PatientIntakeHealthHistory: React.FC = () => {
         layout="vertical"
         onValuesChange={handleValuesChange}
       >
-        <Form.Item className="hh-comments" name="comments" label="Comments">
-          <Input.TextArea
-            rows={5}
-            placeholder="Please add any details you consider important."
-          />
-        </Form.Item>
+        <FormTextarea />
       </Form>
 
-      <WizardNavigation back={Routes.PatientIntakeProfile} />
-      <WizardNavigation next={Routes.PatientIntakeHealthHistoryAllergies} />
+      <WizardNavigation
+        back={Routes.PatientIntakeProfile}
+        next={Routes.PatientIntakeHealthHistoryAllergies}
+      />
     </Page>
   );
 };
