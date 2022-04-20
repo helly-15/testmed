@@ -1,65 +1,39 @@
 import * as React from 'react';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import {
-  Collection,
-  PatientHealthHistory
-} from 'documents';
-import {Routes} from 'routes';
+import { Collection, PatientHealthHistory } from 'documents';
+import { Routes } from 'routes';
 
-import {useDocument} from 'hooks/firestore';
+import { useDocument } from 'hooks/firestore';
 
-import {RootState} from 'app/rootReducer';
-import {Page, WizardNavigation} from 'components';
-import {Form, Input} from "antd";
-import {
-  HealthHistoryForm
-} from "../../../components/health-history-form/HealthHistoryForm";
-
+import { RootState } from 'app/rootReducer';
+import { Page, WizardNavigation } from 'components';
+import { Form, Input } from 'antd';
+import { HealthHistoryForm } from '../../../components/health-history-form/HealthHistoryForm';
 
 export const PatientIntakeHealthHistory: React.FC = () => {
   const user = useSelector((state: RootState) => state.auth.user);
-  const {
-    hasError,
-    isLoading,
-  } = useDocument<PatientHealthHistory>({
+  const { hasError, isLoading } = useDocument<PatientHealthHistory>({
     path: Collection.PatientHealthHistories,
     id: user!.uid
   });
   const [form] = Form.useForm();
-  const handleValuesChange = React.useCallback(
-    (changedValue: any) => {
-      if (Object.keys(changedValue)[0] === 'cancer') {
-        form.resetFields();
-      }
-    },
-    []
-  );
-
+  const handleValuesChange = React.useCallback((changedValue: any) => {
+    if (Object.keys(changedValue)[0] === 'cancer') {
+      form.resetFields();
+    }
+  }, []);
 
   return (
     <Page
       title="Health History"
       isLoading={isLoading}
-      hasError={hasError }
+      hasError={hasError}
       backLink={Routes.PatientIntake}
     >
-      <p>
-        Have you ever been diagnosed with any of the following:
-      </p>
+      <p>Have you ever been diagnosed with any of the following:</p>
 
-        < HealthHistoryForm labels={["Health Issue", "Answer", "Year of onset"]}
-                            values={['Asthma',
-                              'Chronic Obstructive Pulmonary Disease',
-                              'Chron’s Disease',
-                              'Chronic Pancreatitis',
-                              'Type 1 Diabetes',
-                              'Type 2 Diabetes',
-                              'High Blood Sugar',
-                              'High Blood Pressure',
-                              'High Cholesterol',
-                              'Cancer']}
-        />
+      <HealthHistoryForm />
       <Form
         form={form}
         name="health-history-form-comment"
@@ -73,12 +47,9 @@ export const PatientIntakeHealthHistory: React.FC = () => {
           />
         </Form.Item>
       </Form>
-      <WizardNavigation
-        back={Routes.PatientIntakeProfile}
-      />
-      <WizardNavigation
-        next={Routes.PatientIntakeHealthHistoryAllergies}
-      />
+
+      <WizardNavigation back={Routes.PatientIntakeProfile} />
+      <WizardNavigation next={Routes.PatientIntakeHealthHistoryAllergies} />
     </Page>
   );
 };

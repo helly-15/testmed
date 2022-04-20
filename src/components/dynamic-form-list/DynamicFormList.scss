@@ -1,16 +1,6 @@
 @import '../../styles/variables';
 
 .dynamic-form-list {
-  &__headers {
-    display: flex;
-    justify-content: space-around;
-    margin-right: calc(16px + #{$mobile-gap});
-
-    & > * {
-      flex: 0 0 1;
-    }
-  }
-
   &__values {
     list-style-type: none;
     padding: 0;

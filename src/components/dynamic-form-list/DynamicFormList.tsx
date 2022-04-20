@@ -5,6 +5,7 @@ import * as React from 'react';
 import { DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Input } from 'antd';
 import { debounce } from 'lodash';
+import {FormHeaders} from "../form-headers/FormHeaders";
 
 export interface DynamicFormListProps {
   labels: string[];
@@ -33,11 +34,7 @@ const DynamicFormList: React.FC<DynamicFormListProps> = React.memo(
 
     return (
       <div className="dynamic-form-list">
-        <div className="dynamic-form-list__headers">
-          {labels.map(x => (
-            <h3 key={x}>{x}</h3>
-          ))}
-        </div>
+        <FormHeaders labels={labels}/>
         <ul className="dynamic-form-list__values">
           {values.map((x, i) => (
             <li key={i}>
