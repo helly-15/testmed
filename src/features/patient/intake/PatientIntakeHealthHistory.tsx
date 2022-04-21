@@ -21,6 +21,9 @@ const keys = ['issue', 'yearofonset'];
 
 export const PatientIntakeHealthHistory: React.FC = () => {
   const patientId = useSelector((state: RootState) => state.auth.user!.uid);
+  const [form] = Form.useForm();
+  const [formTextarea] = Form.useForm();
+
   const {
     hasError,
     isLoading,
@@ -30,7 +33,10 @@ export const PatientIntakeHealthHistory: React.FC = () => {
     path: Collection.PatientHealthHistories,
     id: patientId
   });
-
+  React.useEffect(() => {
+    form.setFieldsValue({ ...doc });
+    formTextarea.setFieldsValue({ ...doc });
+  }, [form, formTextarea, doc]);
   const [
     itemsError,
     itemsLoading,
@@ -42,8 +48,6 @@ export const PatientIntakeHealthHistory: React.FC = () => {
     orderBy: ['metadata.created', 'asc']
   });
 
-  //todo вставить debouncer и запоминание ответов в textarea, сократить компонент
-  const [form] = Form.useForm();
   const handleValuesChange = React.useCallback(
     (changedValue: any, changedValues: any) => {
       update(
@@ -58,7 +62,7 @@ export const PatientIntakeHealthHistory: React.FC = () => {
     },
     [update, doc]
   );
-  console.log(doc);
+
   return (
     <Page
       title="Health History"
@@ -67,7 +71,6 @@ export const PatientIntakeHealthHistory: React.FC = () => {
       backLink={Routes.PatientIntake}
     >
       <p>Have you ever been diagnosed with any of the following:</p>
-
       <HealthHistoryForm value={doc} handleValuesChange={handleValuesChange} />
       <p>Are there any other issues that are bothering you?</p>
       <Form
@@ -85,7 +88,7 @@ export const PatientIntakeHealthHistory: React.FC = () => {
         />
       </Form>
       <Form
-        form={form}
+        form={formTextarea}
         name="health-history-form-textarea"
         layout="vertical"
         onValuesChange={handleValuesChange}

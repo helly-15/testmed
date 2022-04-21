@@ -31,7 +31,6 @@ export const PatientIntakeHealthHistoryAllergies: React.FC = () => {
     path: `${Collection.PatientAllergies}/${patientId}/${ItemSubcollection}`,
     orderBy: ['metadata.created', 'asc']
   });
-
   return (
     <Page
       title="Allergies and Sensitivities"

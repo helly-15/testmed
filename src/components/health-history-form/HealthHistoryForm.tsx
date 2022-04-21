@@ -19,9 +19,11 @@ interface HealthHistoryFormProps {
 export const HealthHistoryForm: React.FC<HealthHistoryFormProps> = React.memo(
   ({ value, handleValuesChange }) => {
     const [form] = Form.useForm();
+
     React.useEffect(() => {
       form.setFieldsValue({ ...value });
     }, [form, value]);
+
     return (
       <div className="health-history-form">
         <FormHeaders labels={healthHistoryHeaders} hideInMobiles />
