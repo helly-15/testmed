@@ -5,9 +5,12 @@
   justify-content: space-around;
   margin-right: calc(16px + #{$mobile-gap});
 
-  @media (max-width: 1025px) {
-    display: none;
+  &__mobile_hidden {
+    @media (max-width: 1025px) {
+      display: none;
+    }
   }
+
 
   & > * {
     flex: 0 0 1;

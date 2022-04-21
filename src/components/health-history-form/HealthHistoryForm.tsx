@@ -6,38 +6,25 @@ import {
   healthHistoryDeceases,
   HealthConditionOptions,
   healthHistoryHeaders,
-  HealthConditionAnswers,
-  healthHistoryKeyCondition
+  HealthConditionAnswers
 } from './consts';
 import { PatientHealthHistory } from '../../documents';
-import { CancerCheckboxGroup, keyDependency } from '../cancer-checkbox-group';
-import { handleFormChange } from '../../utils/antd';
+import { CancerCheckboxGroup } from '../cancer-checkbox-group';
 
 interface HealthHistoryFormProps {
   value?: PatientHealthHistory;
-  onChange: (value: PatientHealthHistory) => void;
+  handleValuesChange: (changedValue: any, changedValues: any) => void;
 }
 
 export const HealthHistoryForm: React.FC<HealthHistoryFormProps> = React.memo(
-  ({ value, onChange }) => {
+  ({ value, handleValuesChange }) => {
     const [form] = Form.useForm();
-    const handleValuesChange = React.useCallback(
-      (changedValue: any, changedValues: any) => {
-        onChange(
-          handleFormChange(
-            changedValue,
-            changedValues,
-            value,
-            keyDependency,
-            healthHistoryKeyCondition
-          )
-        );
-      },
-      [onChange, value]
-    );
+    React.useEffect(() => {
+      form.setFieldsValue({ ...value });
+    }, [form, value]);
     return (
       <div className="health-history-form">
-        <FormHeaders labels={healthHistoryHeaders} />
+        <FormHeaders labels={healthHistoryHeaders} hideInMobiles />
         <Form
           form={form}
           name="health-history-form"
@@ -61,7 +48,7 @@ export const HealthHistoryForm: React.FC<HealthHistoryFormProps> = React.memo(
                 ></Select>
               </Form.Item>
               <Form.Item
-                name={`year${item}`}
+                name={`year${item.name}`}
                 className={'health-history-form__year'}
               >
                 <Input placeholder="Type in year of onset" />
