@@ -12,7 +12,7 @@ import { PatientHealthHistory } from '../../documents';
 import { CancerCheckboxGroup } from '../cancer-checkbox-group';
 
 interface HealthHistoryFormProps {
-  value: PatientHealthHistory;
+  value?: PatientHealthHistory;
 }
 
 export const HealthHistoryForm: React.FC<HealthHistoryFormProps> = React.memo(
