@@ -2,4 +2,7 @@
 
 .hh-comments {
   margin-top: $mobile-gap;
+  display: flex;
+  flex-direction: column;
+  text-align-last: start;
 }

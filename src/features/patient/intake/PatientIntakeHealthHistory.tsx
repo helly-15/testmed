@@ -80,6 +80,7 @@ export const PatientIntakeHealthHistory: React.FC = () => {
       >
         <p>Have you ever been diagnosed with any of the following:</p>
         <HealthHistoryForm value={doc} />
+        <br />
         <p>Are there any other issues that are bothering you?</p>
         <DynamicFormList
           labels={labels}
