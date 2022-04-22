@@ -1,11 +1,8 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
-
 import { Collection, ItemSubcollection, PatientHealthHistory } from 'documents';
 import { Routes } from 'routes';
-
 import { useCollection, useDocument } from 'hooks/firestore';
-
 import { RootState } from 'app/rootReducer';
 import { DynamicFormList, Page, WizardNavigation } from 'components';
 import { Form } from 'antd';
@@ -22,7 +19,6 @@ const keys = ['issue', 'yearofonset'];
 export const PatientIntakeHealthHistory: React.FC = () => {
   const patientId = useSelector((state: RootState) => state.auth.user!.uid);
   const [form] = Form.useForm();
-  const [formTextarea] = Form.useForm();
 
   const {
     hasError,
@@ -36,8 +32,7 @@ export const PatientIntakeHealthHistory: React.FC = () => {
 
   React.useEffect(() => {
     form.setFieldsValue({ ...doc });
-    formTextarea.setFieldsValue({ ...doc });
-  }, [form, formTextarea, doc]);
+  }, [form, doc]);
 
   const [
     itemsError,
