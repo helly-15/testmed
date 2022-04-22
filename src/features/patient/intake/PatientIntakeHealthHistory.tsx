@@ -33,10 +33,12 @@ export const PatientIntakeHealthHistory: React.FC = () => {
     path: Collection.PatientHealthHistories,
     id: patientId
   });
+
   React.useEffect(() => {
     form.setFieldsValue({ ...doc });
     formTextarea.setFieldsValue({ ...doc });
   }, [form, formTextarea, doc]);
+
   const [
     itemsError,
     itemsLoading,
@@ -70,15 +72,15 @@ export const PatientIntakeHealthHistory: React.FC = () => {
       hasError={hasError && itemsError}
       backLink={Routes.PatientIntake}
     >
-      <p>Have you ever been diagnosed with any of the following:</p>
-      <HealthHistoryForm value={doc} handleValuesChange={handleValuesChange} />
-      <p>Are there any other issues that are bothering you?</p>
       <Form
         form={form}
-        name="health-history-form-other-issues"
-        layout="vertical"
+        name="health-history-form"
+        layout="horizontal"
         onValuesChange={handleValuesChange}
       >
+        <p>Have you ever been diagnosed with any of the following:</p>
+        <HealthHistoryForm value={doc} />
+        <p>Are there any other issues that are bothering you?</p>
         <DynamicFormList
           labels={labels}
           keys={keys}
@@ -86,13 +88,6 @@ export const PatientIntakeHealthHistory: React.FC = () => {
           onItemChange={updateItem}
           onItemRemove={removeItem}
         />
-      </Form>
-      <Form
-        form={formTextarea}
-        name="health-history-form-textarea"
-        layout="vertical"
-        onValuesChange={handleValuesChange}
-      >
         <FormTextarea />
       </Form>
       <WizardNavigation

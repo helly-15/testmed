@@ -39,7 +39,7 @@ const DynamicFormList: React.FC<DynamicFormListProps> = React.memo(
           {values.map((x, i) => (
             <li key={i}>
               {keys.map(k => (
-                <Form.Item name={`${k}_${i}`} key={`${x.id}_${k}`}>
+                <Form.Item noStyle name={`${k}_${i}`} key={`${x.id}_${k}`}>
                   <Input
                     defaultValue={x[k]}
                     onChange={debounce(
@@ -58,7 +58,7 @@ const DynamicFormList: React.FC<DynamicFormListProps> = React.memo(
           ))}
           <li>
             {keys.map((k, i) => (
-              <Form.Item name={`${k}_${values.length}`} key={k}>
+              <Form.Item noStyle name={`${k}_${values.length}`} key={k}>
                 <Input
                   value={newItem[keys[0]] ? newItem[k] : undefined}
                   disabled={i > 0 && !newItem[keys[0]]}
