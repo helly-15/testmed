@@ -3,8 +3,9 @@ import './DynamicFormList.scss';
 import * as React from 'react';
 
 import { DeleteOutlined, PlusOutlined } from '@ant-design/icons';
-import { Button, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import { debounce } from 'lodash';
+import { FormHeaders } from '../form-headers/FormHeaders';
 
 export interface DynamicFormListProps {
   labels: string[];
@@ -33,23 +34,20 @@ const DynamicFormList: React.FC<DynamicFormListProps> = React.memo(
 
     return (
       <div className="dynamic-form-list">
-        <div className="dynamic-form-list__headers">
-          {labels.map(x => (
-            <h3 key={x}>{x}</h3>
-          ))}
-        </div>
+        <FormHeaders labels={labels} />
         <ul className="dynamic-form-list__values">
           {values.map((x, i) => (
             <li key={i}>
               {keys.map(k => (
-                <Input
-                  key={`${x.id}_${k}`}
-                  defaultValue={x[k]}
-                  onChange={debounce(
-                    e => onItemChange({ ...x, [k]: e.target.value }),
-                    inputWaitMs
-                  )}
-                />
+                <Form.Item noStyle name={`${k}_${i}`} key={`${x.id}_${k}`}>
+                  <Input
+                    defaultValue={x[k]}
+                    onChange={debounce(
+                      e => onItemChange({ ...x, [k]: e.target.value }),
+                      inputWaitMs
+                    )}
+                  />
+                </Form.Item>
               ))}
               <Button
                 icon={<DeleteOutlined />}
@@ -60,14 +58,15 @@ const DynamicFormList: React.FC<DynamicFormListProps> = React.memo(
           ))}
           <li>
             {keys.map((k, i) => (
-              <Input
-                key={k}
-                value={newItem[keys[0]] ? newItem[k] : undefined}
-                disabled={i > 0 && !newItem[keys[0]]}
-                onChange={e =>
-                  setNewItem(prev => ({ ...prev, [k]: e.target.value }))
-                }
-              />
+              <Form.Item noStyle name={`${k}_${values.length}`} key={k}>
+                <Input
+                  value={newItem[keys[0]] ? newItem[k] : undefined}
+                  disabled={i > 0 && !newItem[keys[0]]}
+                  onChange={e =>
+                    setNewItem(prev => ({ ...prev, [k]: e.target.value }))
+                  }
+                />
+              </Form.Item>
             ))}
             <Button
               icon={<PlusOutlined />}

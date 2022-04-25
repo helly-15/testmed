@@ -1,0 +1,18 @@
+@import '../../styles/variables';
+
+.form-headers {
+  display: flex;
+  justify-content: space-around;
+  margin-right: calc(16px + #{$mobile-gap});
+
+  &__mobile_hidden {
+    @media (max-width: 1025px) {
+      display: none;
+    }
+  }
+
+
+  & > * {
+    flex: 0 0 1;
+  }
+}

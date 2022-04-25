@@ -1,0 +1,43 @@
+@import '../../styles/variables';
+
+.health-history-form {
+  &__line-wrapper {
+    display: flex;
+
+    @media (max-width: 1025px) {
+      flex-direction: column;
+      margin-top: $mobile-gap;
+    }
+
+    & > :first-child {
+      flex: 1;
+      text-align: left;
+      white-space: break-spaces;
+    }
+
+    & > :last-child {
+      flex: 2;
+    }
+
+    & label:after {
+      content: none;
+    }
+  }
+
+  &__condition {
+    display: inline-block;
+    width: calc(50% - #{$mobile-gap});
+    @media (max-width: 1025px) {
+      display: initial;
+    }
+  }
+
+  &__year {
+    display: inline-block;
+    width: calc(50% - #{$mobile-gap});
+    margin-left: $mobile-gap;
+    @media (max-width: 1025px) {
+      display: initial;
+    }
+  }
+}
